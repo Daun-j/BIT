@@ -1,0 +1,35 @@
+01. GitBash 설치
+
+설치 주소 :
+https://gitforwindows.org/
+(for Window)
+
+02. 명령어
+
+git init : .git이라는 하위 디렉토리 생성
+
+git remote add origin [repository address]
+
+git status : 현재 상태 확인
+
+★
+git add . : 파일 올리기
+git commit -m "init commit" : commit
+git push origin master : push
+★
+
+참고 링크 :
+https://youtu.be/tC8Xj_Bf8Fw
+https://coding-factory.tistory.com/244
+
+
+
+
+
+
+keyword : 레파지토리 삭제
+https://coding-factory.tistory.com/246
+
+keyword : git init 
+title : 2.1 Git의 기초 - Git 저장소 만들기 ★★
+https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-Git-%EC%A0%80%EC%9E%A5%EC%86%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0
