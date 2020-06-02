@@ -17,7 +17,7 @@ public static void main(String[] args) {
    prn = new LPrinterDriver();
    prn.print(myDoc);
 }
-========
+======console====
 From Samsung printer
 This is a report about...
 
@@ -76,7 +76,8 @@ P.372 - 윤성우의 열혈 Java 프로그래밍 챕터 17. 인터페이스와 추상 클래스
 [ 인터페이스 - 함수 정해주기 ] 
 interface Printable{
 	void print(String doc);		// 추상 메소드( abstract method )	// BODY 없음, 자식이 꼭 구현해야함
-	default void printCMYK(String doc){ }	// 디폴트 메소드 ( default method )	// BODY가 비어있긴하지만 있음, 자식이 반드시 구현하지 않아도됨
+	default void printCMYK(String doc){ }	// 디폴트 메소드 ( default method )
+	// BODY가 비어있긴하지만 있음, 자식이 반드시 구현하지 않아도됨
 }
 
 디폴트 메소드의 특징은 다음과 같다.
@@ -126,7 +127,7 @@ interface ICircle {
 	public abstract void getArea(int radius); // 호출하는 쪽은 24-33까지 알필요가 없음. getArea만, 선언부만 알면된다.
 }
 // 2. 추상클래스
-abstract class Circle {						  // 24
+abstract class Circle {			 // 24
 	int radius = 1;
 	final static double PI = 3.14;
 
@@ -135,8 +136,7 @@ abstract class Circle {						  // 24
 	}
 
 	public abstract void getArea();
-}											 // 33
-
+}					 // 33
 
 
 5.조별학습-가즈아 ~~
