@@ -75,9 +75,8 @@ P.372 - 윤성우의 열혈 Java 프로그래밍 챕터 17. 인터페이스와 추상 클래스
 
 [ 인터페이스 - 함수 정해주기 ] 
 interface Printable{
-	void print(String doc);		// 추상 메소드( abstract method )	// BODY 없음, 자식이 꼭 구현해야함
+	void print(String doc);		// 추상 메소드( abstract method )
 	default void printCMYK(String doc){ }	// 디폴트 메소드 ( default method )
-	// BODY가 비어있긴하지만 있음, 자식이 반드시 구현하지 않아도됨
 }
 
 디폴트 메소드의 특징은 다음과 같다.
@@ -90,13 +89,49 @@ interface Printable{
  "그래도 디폴트 메소드로 추가하였으니, 이전에 구현된 드라이버에는 영향을 주지 않는구나."
 
 [ 인터페이스 - 정해준 함수 구현 ]
-class ColorPrint implements Printable{
+class LGPrint implements Printable{
 	@Override
-	public void print(Stirng doc){
-		System.out.println("From Color printer");	
+	public void print(String doc){
+		System.out.println("From LGprinter");	
 		System.out.println(doc);
 	}
 }
+
+
+[ PrintDriver4.java ] 
+// 열혈 자바 P.372 - P.374  +설명추가
+interface Printable{
+	void print(String doc);		// ① 추상 메소드( abstract method )
+	// BODY가 없음. 자식이 꼭 구현해야함. 앞에 abstract 생략가능.  ★ 강제 ★
+
+	default void printCMYK(String doc){ }	// ② 디폴트 메소드 ( default method )
+	// BODY가 비어있긴하지만 있음. 자식이 반드시 구현하지 않아도됨.	★ 선택 ★
+}
+
+
+// Printable 인터페이스를 구현 받는(?) LGPrint Class는 ① 추상메소드만 오버라이딩 했다. 
+class LGPrint implements Printable{									// 영단어 : implements - 구현하다
+	@Override
+	public void print(String doc){			// ① 추상 메소드 오버라이딩
+		System.out.println("From LG printer");	
+		System.out.println(doc);
+	}
+}
+
+// Printable 인터페이스를 구현 받는(?) SamsungPrint Class는 ①추상메소드와 ②디폴트 메소드를 오버라이딩 했다.
+class SamsungPrint implements Printable{
+	@Override
+	public void print(String doc){			// ① 추상 메소드 오버라이딩
+		System.out.println("From Samsung printer");	
+		System.out.println(doc);
+	}
+	
+	@Override
+	public void printCMYK(String doc) {			// ② 디폴트 메소드 오버라이딩
+		System.out.println("Merong");
+	}
+	
+} 
 
 이렇듯 디폴트 메소드는 인터페이스에 추상 메소드를 추가해야 하는 상황에서, 이전에 개발해 놓은 코드에 영향을 미치지 않기 위해 등장한 문법이다.
 
