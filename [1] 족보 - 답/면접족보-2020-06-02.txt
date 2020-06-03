@@ -97,6 +97,7 @@ class LGPrint implements Printable{
 	}
 }
 
+이렇듯 디폴트 메소드는 인터페이스에 추상 메소드를 추가해야 하는 상황에서, 이전에 개발해 놓은 코드에 영향을 미치지 않기 위해 등장한 문법이다.
 
 [ PrintDriver4.java ] 
 // 열혈 자바 P.372 - P.374  +설명추가
@@ -133,7 +134,7 @@ class SamsungPrint implements Printable{
 	
 } 
 
-이렇듯 디폴트 메소드는 인터페이스에 추상 메소드를 추가해야 하는 상황에서, 이전에 개발해 놓은 코드에 영향을 미치지 않기 위해 등장한 문법이다.
+
 
 
 3.abstract 클래스에 대하여 설명하시오.

@@ -1,0 +1,309 @@
+[ Test ]
+1. 다음을 프로그램 하시오.
+interface Printable { // MS가 정의하고 제공한 인터페이스
+   public void print(String doc);
+}
+ SPrinterDriver 와 LPrinterDriver를 만드시오
+======================
+
+public static void main(String[] args) {
+   String myDoc = "This is a report about...";
+   
+   // 삼성 프린터로 출력
+   Printable prn = new SPrinterDriver();
+   prn.print(myDoc);
+   System.out.println();
+
+   // LG 프린터로 출력
+   prn = new LPrinterDriver();
+   prn.print(myDoc);
+}
+================================================
+출력: From Samsung printer
+This is a report about ...
+
+From LG printer
+This is a report about ...
+
+[ PrintDriver.java ] ★열혈자바 p.336 꼭 외우세요 ★
+interface Printable { // MS가 정의하고 제공한 인터페이스
+	public void print(String doc);
+}
+
+class SPrinterDriver implements Printable {
+	@Override
+	public void print(String doc) {
+		System.out.println("From Samsung printer");
+		System.out.println(doc);
+	};
+
+}
+
+class LPrinterDriver implements Printable {
+	@Override
+	public void print(String doc) {
+		System.out.println("From LG printer");
+		System.out.println(doc);
+	};
+}
+
+public class PrintDriver {
+
+	public static void main(String[] args) {
+		String myDoc = "This is a report about...";
+
+		// 삼성 프린터로 출력
+		Printable prn = new SPrinterDriver();
+		prn.print(myDoc);
+		System.out.println();
+
+		// LG 프린터로 출력
+		prn = new LPrinterDriver();
+		prn.print(myDoc);
+
+	}
+
+}
+=====Consle=========================================
+From Samsung printer
+This is a report about ...
+
+From LG printer
+This is a report about ...
+
+
+
+2. 아래의 출력 결과가 아래와 같이 나오도록 프로그래밍 하시오.
+Circle circle = new Circle(10);
+Object obj = new Circle(10);
+System.out.println(obj);
+=================
+출력: 넓이는 314.0 입니다.
+
+[ CircleTest.java ]
+class Circle {
+	private int radius = 0;
+	private final double PI = 3.14;		// 이거 대신 Math.PI를 써도됩니다.
+
+	Circle(int radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public String toString() {			// Object class에 toString 함수를 오버라이딩
+		String str = "넓이는 " + (radius * radius * PI) + " 입니다.";	// PI 대신 Math.PI 가능
+		return str;
+	}
+}
+
+public class CircleTest {
+
+	public static void main(String[] args) {
+		Circle circle = new Circle(10);
+		Object obj = new Circle(10);	// Object에 F3눌러서 toString 함수를 확인해보세요.
+		System.out.println(obj);
+
+	}
+
+}
+
+==Console===============
+넓이는 314.0 입니다.
+
+3. 아래를 다형성의 활용하여 프로그래밍 하시오. (5분 +2분)
+
+-원의 넓이
+-사각형 넓이
+-삼각형 넓이
+==========
+3개 넓이의 총합을 구하는 프로그램을 짜시오
+
+[ AreaTest.java ]
+
+class Area {
+	protected double area = 0;
+
+	public double getArea() {
+		return area;
+	}
+
+	static double addArea(Area[] a) {
+		double sum = 0;
+
+		for (Area total : a) {
+			sum = sum + total.getArea();
+		}
+
+		return sum;
+	}
+}
+
+class Circle extends Area {
+	private int radius = 0;
+	private final double PI = 3.14;
+
+	Circle(int radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public double getArea() {
+		area = radius * radius * PI;
+		return area;
+	}
+}
+
+class Square extends Area {
+	private int width = 0, height = 0;
+
+	Square(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	@Override
+	public double getArea() {
+		area = width * height;
+		return area;
+	}
+}
+
+class Triangle extends Area {
+	private int width = 0, height = 0;
+	private final double N = 0.5;
+
+	Triangle(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	@Override
+	public double getArea() {
+		area = width * height * N;
+		return area;
+	}
+}
+
+public class AreaTest {
+
+	public static void main(String[] args) {
+		Area[] area = new Area[3];
+
+		area[0] = new Circle(10);
+		area[1] = new Square(1, 1);
+		area[2] = new Triangle(1, 2);
+
+		double sum = 0;
+		sum = Area.addArea(area);
+		System.out.println(sum);
+
+	}
+
+}
+
+
+4.  아래의 2차원 배열의  메모리 그림을 그리시오. (3분)
+int[][] arr = {
+   {11, 22, 33},
+   {44, 55, 66}, 
+   {77, 88, 99}
+};
+출력=================================
+11	22	33	
+44	55	66	
+77	88	99
+
+[ Test.java ]
+public class Test {
+
+	public static void main(String[] args) {
+		int[][] arr = {
+				   {11, 22, 33},
+				   {44, 55, 66}, 
+				   {77, 88, 99}
+				};
+		
+		for(int i = 0 ;i<arr.length;i++) {
+			for(int j = 0; j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+			}System.out.println();
+		}
+
+	}
+
+}
+
+==console==
+11	22	33	
+44	55	66	
+77	88	99	
+
+
+5. 아래를 프로그래밍 하시오. (7분 +3분)
+ - Rectangle 배열 4개를 만든후 스캐너 객체로 가로와 세로를 입력하여 4개의 객체를 배열에 할당한다 
+- 해당 배열중 넓이가 최대값을 찾아서 리턴
+
+Rectangle[] rec = new Rectangle[3];
+........
+Rectangle maxRec = Rectangle.getMaxRec(rec);
+System.out.println("최대사각형 넓이는" + maxRec.getArea());
+
+
+
+[ RectangleTest.java ] - 선생님 코드
+
+import java.util.Scanner;
+
+class Rectangle {
+	private int width = 0, height = 0;
+
+	public Rectangle(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	public int getArea() {
+		return width * height;
+	}
+
+	public static Rectangle getMaxRec(Rectangle[] recArr) {
+		Rectangle maxRec = recArr[0];
+
+		// 1. enhanced for문
+		for (Rectangle rec : recArr) {
+			if (maxRec.getArea() < rec.getArea()) {
+				maxRec = rec; // maxRec에 큰놈의 주소를 넣어준다.
+			}
+		}
+		
+		// 2. for문			-- 1,2 중 선택
+		for(int i=0;i<recArr.length;i++) {
+			if(maxRec.getArea()<recArr[i].getArea()) {
+				maxRec=recArr[i];
+			}
+		}
+
+		return maxRec;
+	}
+
+}
+
+public class RectangleTest {
+
+	public static void main(String[] args) {
+		Rectangle[] rec = new Rectangle[3];
+		Scanner scanner = null;
+
+		for (int i = 0; i < 3; i++) {
+			scanner = new Scanner(System.in);
+			int width = scanner.nextInt();
+			int height = scanner.nextInt();
+			rec[i] = new Rectangle(width, height);
+		}
+
+		Rectangle maxRec = Rectangle.getMaxRec(rec);
+		System.out.println("최대사각형 넓이는" + maxRec.getArea());
+
+	}
+
+}
