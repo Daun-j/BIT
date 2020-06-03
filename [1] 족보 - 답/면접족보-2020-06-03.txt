@@ -34,6 +34,10 @@ public static Rectangle getMaxRec(Rectangle[] recArr) {
 
 3. 예외에 대한 클래스 상속도를 간단하게 그리시오.
 
+keyword : 자바 에외처리
+title : Java 예외(Exception) 처리에 대한 작은 생각
+http://www.nextree.co.kr/p3239/
+
 4.예전의 계산기 프로그램이 아래와 같이 에러가 난다. 예외처리를 구문을 적용하여, 죽지 않게 만드시오.
 
 첫번째 숫자를 넣으세요:1
