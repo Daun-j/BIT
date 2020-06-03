@@ -1,10 +1,10 @@
-[ Test ]
+[ Test-2020-06-03 ]
 1. 다음을 프로그램 하시오.
 interface Printable { // MS가 정의하고 제공한 인터페이스
    public void print(String doc);
 }
  SPrinterDriver 와 LPrinterDriver를 만드시오
-======================
+==========================================================
 
 public static void main(String[] args) {
    String myDoc = "This is a report about...";
@@ -18,8 +18,8 @@ public static void main(String[] args) {
    prn = new LPrinterDriver();
    prn.print(myDoc);
 }
-================================================
-출력: From Samsung printer
+==console===================================================
+From Samsung printer
 This is a report about ...
 
 From LG printer
@@ -64,7 +64,7 @@ public class PrintDriver {
 	}
 
 }
-=====Consle=========================================
+==console===================================================
 From Samsung printer
 This is a report about ...
 
@@ -107,7 +107,7 @@ public class CircleTest {
 
 }
 
-==Console===============
+==console===================================================
 넓이는 314.0 입니다.
 
 3. 아래를 다형성의 활용하여 프로그래밍 하시오. (5분 +2분)
@@ -208,7 +208,7 @@ int[][] arr = {
    {44, 55, 66}, 
    {77, 88, 99}
 };
-출력=================================
+==console===================================================
 11	22	33	
 44	55	66	
 77	88	99
@@ -233,7 +233,7 @@ public class Test {
 
 }
 
-==console==
+==console===================================================
 11	22	33	
 44	55	66	
 77	88	99	
