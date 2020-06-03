@@ -307,3 +307,58 @@ public class RectangleTest {
 	}
 
 }
+
+
+
+[ RectangleTest.java ] Daun's Code
+
+import java.util.Scanner;
+
+class Rectangle {
+	private int width = 0, height = 0;
+
+	Rectangle(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	int getArea() {
+		return width * height;
+	}
+	
+	static Rectangle getMaxRec(Rectangle[] rec) {
+		Rectangle max = rec[0];
+		for (int i = 0; i < rec.length; i++) {
+			if (max.getArea() < rec[i].getArea()) {
+				max = rec[i];
+			}
+		}
+		return max;
+	}
+
+}
+
+public class RectangleTest {
+	public static void main(String[] args) {
+		Rectangle[] rec = new Rectangle[3];
+		int width = 0, height = 0;
+		Scanner scan = null;
+
+		for (int i = 0; i < rec.length; i++) {
+			scan = new Scanner(System.in); // Scanner for문 안에서 객체생성.
+			System.out.println("[" + (i + 1) + "번째 사각형의 가로 & 세로 ]");
+			System.out.print("가로 :");
+			width = scan.nextInt();
+			System.out.print("세로 :");
+			height = scan.nextInt();
+			rec[i] = new Rectangle(width, height);
+		}
+		
+		System.out.println();
+		
+		Rectangle maxRec = Rectangle.getMaxRec(rec);
+		System.out.println("최대사각형 넓이는 " + maxRec.getArea());
+	}
+}
+
+
