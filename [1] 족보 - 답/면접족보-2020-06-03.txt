@@ -210,6 +210,7 @@ continue? Y or N:y
 연산 기호를 넣으세요:/
 두번째 숫자를 넣으세요:0
 / by zero
+
 5.예외처리 에서, 아래의 용어를 설명하시오.
 -checked Excetpion이란 unchecked Exception이란?
 -finally
