@@ -1,4 +1,5 @@
-[ Test ]
+[ Test-2020-06-03 ]
+
 1. 다음을 프로그램 하시오. (5분)
 interface Printable { // MS가 정의하고 제공한 인터페이스
    public void print(String doc);
@@ -25,7 +26,6 @@ This is a report about ...
 From LG printer
 This is a report about ...
 
-// 1. 2:30
 
 
 2. 아래의 출력 결과가 아래와 같이 나오도록 프로그래밍 하시오. (5분)
@@ -35,7 +35,7 @@ System.out.println(obj);
 =================
 출력: 넓이는 314.0 입니다.
 
-// 2. 3:20
+
 
 3. 아래를 다형성의 활용하여 프로그래밍 하시오. (5분 +2분)
 
@@ -45,7 +45,7 @@ System.out.println(obj);
 ==========
 3개 넓이의 총합을 구하는 프로그램을 짜시오
 
-// 3. TIME OVER
+
 
 
 4.  아래의 2차원 배열의  메모리 그림을 그리시오. (3분)
@@ -59,7 +59,7 @@ int[][] arr = {
 44	55	66	
 77	88	99
 
-// 4. 1:20
+
 
 5. 아래를 프로그래밍 하시오. (7분 +3분)
  - Rectangle 배열 4개를 만든후 스캐너 객체로 가로와 세로를 입력하여 4개의 객체를 배열에 할당한다 
@@ -70,4 +70,5 @@ Rectangle[] rec = new Rectangle[3];
 Rectangle maxRec = Rectangle.getMaxRec(rec);
 System.out.println("최대사각형 넓이는" + maxRec.getArea());
 
-// 5. 9:40
+
+// 1. 2:30 // 2. 3:20 // 3. TIME OVER // 4. 1:20 // 5. 9:40
