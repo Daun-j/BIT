@@ -1,0 +1,108 @@
+1.제네릭을 쓰는 이유는?
+
+2.496page 문제 21-1 번을 푸시오.
+
+[Test.java] package_0608
+package _0608;
+
+class DBox<L, R> {
+	private L left;
+	private R right;
+
+	public void set(L o, R r) {
+		left = o;
+		right = r;
+	}
+
+	public String toString() {
+		return left + " & " + right;
+	}
+}
+
+class DDBox<L, R> {
+	private L left;
+	private R right;
+
+	public void set(L o, R r) {
+		left = o;
+		right = r;
+	}
+	
+	public String toString() {
+		return left + "\n" + right;
+	}
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+		DBox<String, Integer> box1 = new DBox<>();
+		box1.set("Apple", 25);
+
+		DBox<String, Integer> box2 = new DBox<>();
+		box2.set("Orange", 33);
+		
+		// P.496-497 문제 21-1 (1)
+		 DDBox<DBox<String,Integer>,DBox<String,Integer>> ddbox = new DDBox<>();
+		 ddbox.set(box1,box2);
+		 System.out.println(ddbox);
+
+		// P.496-497 문제 21-1 (2)
+		DBox<DBox<String, Integer>, DBox<String, Integer>> dbox = new DBox<>();
+		dbox.set(box1, box2);
+		System.out.println(dbox);
+
+	}
+
+}
+
+
+3.제네릭 메소드란?
+
+4.아래가 호출되도록 BoxFactory 클래스를 만드시오.
+Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
+Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
+
+[BoxTest.java][1]package _0608
+package _0608;
+
+class Box<T>{
+	private T ob;
+	
+	public void set(T o) {
+		ob = o;
+	}
+	public T get() {
+		return ob;
+	}
+	
+}
+
+class BoxFactory{
+	
+	static <T> Box<T> makeBox(T o){
+		Box<T> box = new Box<>(); 
+		box.set(o);
+		return box;
+	}
+}
+
+
+public class BoxTest {
+
+	public static void main(String[] args) {
+		Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
+		Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
+		
+		System.out.println(sBox.get());
+		System.out.println(dBox.get());
+
+	}
+
+}
+
+
+5.다음용어를 정리하시오.
+-http
+-도메인네임
+-포트번호
