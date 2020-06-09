@@ -2,7 +2,7 @@
 
 2.496page 문제 21-1 번을 푸시오.
 
-[Test.java] package_0608
+[Test.java] [3] package_0608
 package _0608;
 
 class DBox<L, R> {
@@ -63,7 +63,7 @@ public class Test {
 Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
 Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
 
-[BoxTest.java][1]package _0608
+[BoxTest.java] [1] package _0608
 package _0608;
 
 class Box<T>{
