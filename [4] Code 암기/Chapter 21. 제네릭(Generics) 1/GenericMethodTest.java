@@ -17,8 +17,7 @@ class Box {
 }
 */
 
-//2. 1의 Object를 T로 다 바꿔 ~ 1. 
-/*2. 1의 Object를 T로 다 바꿔 ~*/
+//2. 1의 Object를 T로 다 바꿔 ~
 class Box<T> {
 	private T ob;
 	
