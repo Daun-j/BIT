@@ -1,0 +1,38 @@
+[ Test-2020-06-10 ]
+
+1. 아래가 호출되도록 BoxFactory 클래스를 만드시오.	( 10분)
+
+Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
+Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
+
+
+2. 아래의 interface 를 구현하시오. (3분)
+interface IGugudan{
+void gugudan();      //구구단 출력
+}
+
+
+3. 아래의 Error 를 설명하시오. (5분)
+
+lass Car extends Toy {...}    // 자동차 장난감
+class Robot extends Toy {...}    // 로봇 장난감
+
+class Box<T> {
+   private T ob;
+   public void set(T o) { ob = o; }
+   public T get() { return ob; }
+}
+
+. . . 
+
+public static void outBox(Box<? extends Toy> box) {
+   box.get();   // 꺼내는 것! OK!
+   box.set(new Toy());   // 넣는 것! ERROR!
+}
+
+4. 가위바위보 게임 객체지향적으로 (10분)
+
+5. html로 표현하기. (5분)
+□□□□
+□가나□
+□□□□
