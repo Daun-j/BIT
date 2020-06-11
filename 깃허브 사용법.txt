@@ -20,20 +20,28 @@ git push origin master : push
 
 ※ 참고 링크 ※
 
-keyword : 깃허브
-title : [Github] 바로 사용하는 초간단 GITHUB(깃허브) 사용법
+k : 깃허브
+t : [Github] 바로 사용하는 초간단 GITHUB(깃허브) 사용법
 https://youtu.be/tC8Xj_Bf8Fw
 
-title : [Git] GitHub 레파지토리(Repository) 생성 & 소스 올리기 (Git Hash활용)  ★★
+t : [Git] GitHub 레파지토리(Repository) 생성 & 소스 올리기 (Git Hash활용)  ★★
 https://coding-factory.tistory.com/244
 
 
 
 
-keyword : 레파지토리 삭제
-title : [Git] GitHub 레파지토리(Repository) 삭제
+k : 레파지토리 삭제
+t : [Git] GitHub 레파지토리(Repository) 삭제
 https://coding-factory.tistory.com/246
 
-keyword : git init 
-title : 2.1 Git의 기초 - Git 저장소 만들기
+k : git init 
+t : 2.1 Git의 기초 - Git 저장소 만들기
 https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-Git-%EC%A0%80%EC%9E%A5%EC%86%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0
+
+
+
+k : 이클립스 한글
+t : [이클립스] 한글 깨졌을 시, 인코딩(Encoding) 설정하기
+https://sesok808.tistory.com/357
+https://forgiveall.tistory.com/376
+https://ezcocoa.com/2019-09-11-git-encoding-problem/
