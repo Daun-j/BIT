@@ -1,5 +1,6 @@
 [ Test-2020-06-12 ]
-1. 아래를  출력하시오.	(7분)
+
+1. 아래를  출력하시오.	(7분) ★암기★
 -(반복자 기반)
 - (for-each문 기반)
 HashMap<Integer, String> map = new HashMap<>();
@@ -7,6 +8,45 @@ HashMap<Integer, String> map = new HashMap<>();
    map.put(37, "James");
    map.put(23, "Martin");
 
+[HashMapIteration.java]
+
+package test0612;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+//P.592
+public class HashMapIteration {
+
+	public static void main(String[] args) {
+		HashMap<Integer, String> map = new HashMap<>();
+		
+		// Key-Value 기반 데이터 저장
+		map.put(45, "Brown");
+		map.put(37, "James");
+		map.put(23, "Martin");
+		
+		// Key만 담고 있는 컬렉션 인스턴스 생성
+		Set<Integer> ks = map.keySet();
+		
+		// 전체 Key 출력 (for-each문 기반)
+		for(Integer n : ks) {
+			System.out.print(n.toString()+'\t');
+		}System.out.println();
+		
+		// 전체 value 출력 (for-each문 기반)
+		for(Integer n : ks) {
+			System.out.print(map.get(n).toString()+'\t');
+		}System.out.println();
+		
+		// 전체 value 출력 (반복자 기반)
+		for(Iterator<Integer> itr = ks.iterator(); itr.hasNext();) {
+			System.out.print(map.get(itr.next())+'\t');
+		}System.out.println();
+
+	}
+
+}
 
 2. 아래의 List 객체에서 순차적 접근방법 3가지로 출력하시오.	(5분)
 -list가 가지는 get
@@ -22,7 +62,7 @@ HashMap<Integer, String> map = new HashMap<>();
 =============
 
 
-[ HashMapIteration.java ]
+[ Collection_EnhancedFor_Iterator.java ]
 
 package test0612;
 
@@ -30,7 +70,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class HashMapIteration {
+public class Collection_EnhancedFor_Iterator {
 
 	public static void main(String[] args) {
 		List<String> list = new LinkedList<>();
