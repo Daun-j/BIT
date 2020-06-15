@@ -1,0 +1,407 @@
+1. 아래를  출력하시오.	(7분) ★암기★ //P.592
+- (반복자 기반)
+- (for-each문 기반)
+HashMap<Integer, String> map = new HashMap<>();
+   map.put(45, "Brown");
+   map.put(37, "James");
+   map.put(23, "Martin");
+
+==console==
+37	23	45	
+James	Martin	Brown	
+James	Martin	Brown	
+
+
+[ HashMapIteration.java ] [0]Test
+
+package test0615;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+public class HashMapIteration {
+
+	public static void main(String[] args) {
+		HashMap<Integer, String> map = new HashMap<>();
+
+		// Key-Value 기반 데이터 저장
+		map.put(45, "Brown");
+		map.put(37, "James");
+		map.put(23, "Martin");
+
+		// Key만 담고 있는 컬렉션 인스턴스 생성
+		Set<Integer> ks = map.keySet();
+
+		// 전체 Key 출력 (for-each문 기반)
+		for (Integer n : ks) {
+			System.out.print(n.toString() + '\t');
+		}
+		System.out.println();
+
+		// 전체 value 출력 (for-each문 기반)
+		for (Integer n : ks) {
+			System.out.print(map.get(n).toString() + '\t');
+		}
+		System.out.println();
+
+		// 전체 value 출력 (반복자 기반)
+		for (Iterator<Integer> itr = ks.iterator(); itr.hasNext();) {
+			System.out.print(map.get(itr.next()) + '\t');
+		}
+		System.out.println();
+
+	}
+
+}
+
+2. 아래의 List 객체에서 순차적 접근방법 3가지로 출력하시오. (5분) ★암기★ 
+-list가 가지는 get
+-enhenced for
+-iterator 객체
+
+   List<String> list = new LinkedList<>();   
+   
+   // 컬렉션 인스턴스에 문자열 인스턴스 저장
+   list.add("Toy");
+   list.add("Box");
+   list.add("Robot");
+==console==
+Toy	Box	Robot	
+Toy	Box	Robot	
+Toy	Box	Robot	
+
+
+[ LinkedListTest.java ] [0]Test
+
+package test0615;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class LinkedListTest {
+
+	public static void main(String[] args) {
+		List<String> list = new LinkedList<>();
+
+		// 컬렉션 인스턴스에 문자열 인스턴스 저장
+		list.add("Toy");
+		list.add("Box");
+		list.add("Robot");
+
+		//1
+		for (int i = 0; i < list.size(); i++) {
+			System.out.print(list.get(i) + '\t');
+		}
+		System.out.println();
+
+		//2
+		for (String l : list) {
+			System.out.print(l + '\t');
+		}
+		System.out.println();
+
+		//3
+		for (Iterator<String> itr = list.iterator(); itr.hasNext();) {
+			System.out.print(itr.next().toString() + '\t');
+		}
+
+	}
+
+}
+
+
+
+
+3. 아래가 호출되도록 BoxFactory 클래스를 만드시오. (5분)
+Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
+Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
+
+System.out.println(sBox.get());
+System.out.println(dBox.get());
+
+==console==
+Sweet
+7.59
+
+
+[ GenericTest.java ] [0]Test
+
+package test0615;
+
+public class GenericTest {
+
+	public static void main(String[] args) {
+		Box<String> sBox = BoxFactory.<String>makeBox("Sweet");
+		Box<Double> dBox = BoxFactory.<Double>makeBox(7.59);
+		
+		System.out.println(sBox.get());
+		System.out.println(dBox.get());
+	}
+
+}
+
+class Box<T>{
+	private T ob;
+	
+	public void set(T o) {
+		ob=o;
+	}
+	
+	public T get() {
+		return ob;
+	}
+	
+}
+
+class BoxFactory{
+	
+	static <T> Box<T> makeBox(T o){
+		Box<T> box = new Box<>();
+		box.set(o);
+		
+		return box;
+	}
+}
+
+4. 아래를 인스턴스 수가 2가 나오도록 수정하시오.     (5분+2분)
+        HashSet<Num> set = new HashSet<>();
+        
+        set.add(new Num(7799));
+        set.add(new Num(9955));
+        set.add(new Num(7799));
+
+        System.out.println("인스턴스 수: " + set.size());
+
+==console==
+인스턴스 수: 2
+9955	7799	
+
+[ HashSetEqualityTwo.java ] [0]Test
+
+package test0615;
+
+import java.util.HashSet;
+
+public class HashSetEqualityTwo {
+
+	public static void main(String[] args) {
+		HashSet<Num> set = new HashSet<>();
+
+		set.add(new Num(7799));
+		set.add(new Num(9955));
+		set.add(new Num(7799));
+
+		System.out.println("인스턴스 수: " + set.size());
+		
+		for(Num n:set) {
+			System.out.print(n.toString()+'\t');
+		}System.out.println();
+		
+	}
+
+}
+
+class Num{
+	private int num;
+	
+	public Num(int n) {
+		num = n;
+	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(num);
+	}
+	
+	@Override
+	public int hashCode() {
+		return num%3;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(num==((Num) obj).num) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+}
+
+5.  아래를 기반으로 스택을 구현하시오. (15분)
+
+interface IStack{
+    boolean isEmpty();
+    boolean isFull();
+    void push(int item);
+    int pop();
+    int peek();
+    void clear();
+}
+
+public class StackArray implements IStack{
+    
+    private int top;
+    private int stackSize;
+    private int stackArr[];
+............
+.........
+}
+
+[ StackArray.java ] [0]Test 스택구현
+package test0615;
+
+interface IStack {
+
+	boolean isEmpty();
+
+	boolean isFull();
+
+	void push(int item);
+
+	int pop();
+
+	int peek();
+
+	void clear();
+}
+
+public class StackArray implements IStack{
+
+	private int top;
+	private int stackSize;
+	private int stackArr[];
+	
+	
+	//스택을 생성하는 생성자
+	public StackArray(int stackSize) {
+		top = -1;
+		this.stackSize=stackSize;
+		stackArr = new int[this.stackSize];
+	}
+	
+	//
+	@Override
+	public boolean isEmpty() {
+		return(top==-1);
+	}
+	
+	@Override
+	public boolean isFull() {
+		return(top==stackSize-1);
+	}
+	
+	@Override
+	public void push(int item) {
+		if(isFull()) {
+			System.out.println("Stack is full");
+		}else {
+			stackArr[++top]=item;
+			System.out.println("Inserted item:"+item);
+		}
+	}
+	
+	@Override
+	public int pop() {
+		if(isEmpty()) {
+			System.out.println("Deleting fail! Stack is empty!");
+			return 0;
+		}else {
+			System.out.println("Deleted item:"+stackArr[top]);
+			return stackArr[--top];
+		}
+	}
+	
+	@Override
+	public int peek() {
+		if(isEmpty()) {
+			System.out.println("Peeking fail! Stack is empty");
+			return 0;
+		}else {
+			System.out.println("Peeked item:"+stackArr[top]);
+			return stackArr[top];
+		}
+		
+	}
+	
+	@Override
+	public void clear() {
+		if(isEmpty()) {
+			System.out.println("Stack is already empty!");
+		}else {
+			top = -1;
+			stackArr = new int[this.stackSize];
+			System.out.println("Stack is clear!");
+			
+		}
+	}
+	
+	public void printStack() {
+		if(isEmpty()) {
+			System.out.println("Stack is empty!");
+		}else {
+			System.out.print("Stack emlemens: ");
+			for(int i=0;i<=top;i++) {
+				System.out.print(stackArr[i]+"");
+			}System.out.println();
+		}
+	}	
+
+	
+}
+
+[ StackTest.java ] [0]Test 메인메소드에서 테스트 실행
+
+package test0615;
+
+public class StackTest {
+
+	public static void main(String[] args) {
+		int stackSize = 5;
+		StackArray arrStack = new StackArray(stackSize);
+        
+        arrStack.push(1);
+        arrStack.printStack();
+        
+        arrStack.push(2);
+        arrStack.printStack();
+        
+        arrStack.push(3);
+        arrStack.printStack();
+        
+        arrStack.pop();
+        arrStack.printStack();
+        
+        arrStack.pop();
+        arrStack.printStack();
+        
+        arrStack.peek();
+        arrStack.printStack();
+        
+        arrStack.clear();
+        arrStack.printStack();
+
+	}
+
+}
+
+==console==
+Inserted item:1
+Stack emlemens: 1
+Inserted item:2
+Stack emlemens: 12
+Inserted item:3
+Stack emlemens: 123
+Deleted item:3
+Stack emlemens: 12
+Deleted item:2
+Stack emlemens: 1
+Peeked item:1
+Stack emlemens: 1
+Stack is clear!
+Stack is empty!
+
+
