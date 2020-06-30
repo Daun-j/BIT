@@ -70,5 +70,3 @@ Rectangle[] rec = new Rectangle[3];
 Rectangle maxRec = Rectangle.getMaxRec(rec);
 System.out.println("최대사각형 넓이는" + maxRec.getArea());
 
-
-// 1. 2:30 // 2. 3:20 // 3. TIME OVER // 4. 1:20 // 5. 9:40
